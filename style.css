@@ -1841,38 +1841,52 @@ section {
     /* Mobile performance optimizations - remove backdrop filters */
     .navbar {
         backdrop-filter: none;
-        background: rgba(10, 14, 39, 0.95);
+        background: rgba(10, 14, 39, 0.85);
     }
 
     .light-theme .navbar {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.85);
     }
 
     .mobile-nav-overlay {
         backdrop-filter: none;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.6);
     }
 
     .mobile-nav-btn {
         backdrop-filter: none;
-        background: rgba(99, 102, 241, 0.25);
+        background: rgba(99, 102, 241, 0.4);
+        color: #ffffff;
+    }
+
+    .mobile-nav-btn:hover {
+        background: rgba(99, 102, 241, 0.6);
     }
 
     .sidebar-btn {
         backdrop-filter: none;
-        background: rgba(99, 102, 241, 0.25);
+        background: rgba(99, 102, 241, 0.4);
     }
 
     /* Reduce blur effects on gradient elements for better performance */
     .gradient-blob {
         filter: blur(60px);
-        opacity: 0.25;
+        opacity: 0.5;
     }
 
     /* Optimize modal overlay for mobile */
     .modal-overlay {
         backdrop-filter: none;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Increase overall brightness for mobile */
+    body {
+        filter: brightness(1.1);
+    }
+
+    .light-theme body {
+        filter: brightness(1.05);
     }
 }
 
@@ -1889,7 +1903,16 @@ section {
     /* Additional performance optimizations for small mobile */
     .gradient-blob {
         filter: blur(40px);
-        opacity: 0.2;
+        opacity: 0.45;
+    }
+
+    /* Increase brightness more for small mobile */
+    body {
+        filter: brightness(1.15);
+    }
+
+    .light-theme body {
+        filter: brightness(1.08);
     }
 
     /* Disable complex animations on low-end devices */
