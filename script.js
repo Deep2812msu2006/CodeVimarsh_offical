@@ -1,4 +1,52 @@
 // ============================================
+// MOBILE NAVIGATION
+// ============================================
+
+const hamburger = document.getElementById('hamburger');
+const mobileNavPanel = document.getElementById('mobileNavPanel');
+const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileNavButtons = document.querySelectorAll('.mobile-nav-btn');
+
+// Open mobile navigation panel
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        mobileNavPanel.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Close mobile navigation panel
+function closeMobileNav() {
+    mobileNavPanel.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', closeMobileNav);
+}
+
+if (mobileNavOverlay) {
+    mobileNavOverlay.addEventListener('click', closeMobileNav);
+}
+
+// Close mobile nav when clicking on navigation links
+mobileNavButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        closeMobileNav();
+    });
+}
+
+// Close mobile nav on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileNavPanel.classList.contains('active')) {
+        closeMobileNav();
+    }
+});
+
+// ============================================
 // NAVBAR FUNCTIONALITY
 // ============================================
 
