@@ -1837,6 +1837,43 @@ section {
     .team-card:nth-child(5) {
         grid-column: span 1;
     }
+
+    /* Mobile performance optimizations - remove backdrop filters */
+    .navbar {
+        backdrop-filter: none;
+        background: rgba(10, 14, 39, 0.95);
+    }
+
+    .light-theme .navbar {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .mobile-nav-overlay {
+        backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .mobile-nav-btn {
+        backdrop-filter: none;
+        background: rgba(99, 102, 241, 0.25);
+    }
+
+    .sidebar-btn {
+        backdrop-filter: none;
+        background: rgba(99, 102, 241, 0.25);
+    }
+
+    /* Reduce blur effects on gradient elements for better performance */
+    .gradient-blob {
+        filter: blur(60px);
+        opacity: 0.25;
+    }
+
+    /* Optimize modal overlay for mobile */
+    .modal-overlay {
+        backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.9);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1848,7 +1885,31 @@ section {
     .team-card:nth-child(5) {
         grid-column: span 1;
     }
-}
+
+    /* Additional performance optimizations for small mobile */
+    .gradient-blob {
+        filter: blur(40px);
+        opacity: 0.2;
+    }
+
+    /* Disable complex animations on low-end devices */
+    .gradient-blob {
+        animation: none;
+    }
+
+    /* Reduce shadow complexity */
+    * {
+        box-shadow: none !important;
+    }
+
+    .navbar {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .sidebar-btn,
+    .mobile-nav-btn {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
 
     .hero-title {
         font-size: 2.5rem;
@@ -1898,9 +1959,7 @@ section {
         width: 100%;
         text-align: center;
     }
-}
 
-@media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
     }
